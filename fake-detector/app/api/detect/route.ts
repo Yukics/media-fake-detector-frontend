@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server'
 import { detectAI } from '@/lib/detectAI'
+import { getHash } from '@/lib/hashing'
 
 export async function POST(request: Request) {
   const formData = await request.formData()
@@ -19,7 +20,10 @@ export async function POST(request: Request) {
 
   try {
     const buffer = Buffer.from(await file.arrayBuffer())
-    const result = await detectAI(buffer)
+
+    // const result = await detectAI(buffer)
+    const result = await getHash(buffer)
+
     return NextResponse.json(result)
   } catch (error) {
     console.error('Error detecting AI:', error)

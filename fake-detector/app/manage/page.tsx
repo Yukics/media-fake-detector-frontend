@@ -6,10 +6,7 @@ import ResultDisplay from '@/components/ResultDisplay'
 import axios from 'axios'
 
 export default function Home() {
-  const [result, setResult] = useState<{ isAI: boolean | null; confidence: number | null }>({
-    isAI: null,
-    confidence: null,
-  })
+  const [result, setResult] = useState<string>("")
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
 
@@ -50,7 +47,7 @@ export default function Home() {
             <span className="sr-only">Loading...</span>
           </div>
         )}
-        <ResultDisplay isAI={result.isAI} confidence={result.confidence} error={error} />
+        <ResultDisplay hash={result} />
       </div>
     </main>
   )
