@@ -1,6 +1,6 @@
 
 
-export default function ResultDisplay(props) {
+export default function ResultDisplay(props: any) {
   // if (error) {
   //   return (
   //     <div
